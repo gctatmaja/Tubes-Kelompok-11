@@ -9,6 +9,16 @@ package tubes;
  *
  * @author useR
  */
-public class Orang {
+public abstract class Orang 
+{
+    private String id;
+    private String password;
+    
+    public Orang(String id, String password)
+    {
+        this.id=id;
+        this.password=password;
+                
+    }
     
 }
