@@ -20,5 +20,4 @@ public abstract class Orang
         this.password=password;
                 
     }
-    
 }
