@@ -5,7 +5,7 @@
  */
 package tubes;
 
-public class Aplikasi 
+public class Aplikasilama 
 {
     Assisten[] daftarAssisten;
     Mahasiswa[] daftarMahasiswa;
