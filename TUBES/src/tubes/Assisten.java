@@ -15,6 +15,10 @@ public final class Assisten
     private long nim;
     private TugasBesar[] tugasBesar ;
     private int nTugasBesar ;
+
+    Assisten(String ahmad, String lakilaki, int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void createTugasBesar(String judul)
     {
@@ -57,6 +61,34 @@ public final class Assisten
     public void setNim(long nim) {
         this.nim = nim;
     } 
+
+    String getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Object getTugasBesar(int p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    int getmaxTugasBesar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void tambahMahasiswa(String string, String nama, String jeniskel, int nim) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setId(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void createTugasBesar(String aplikasi_inventaris, int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setPass(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 
 
