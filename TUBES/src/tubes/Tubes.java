@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Tubes {
     private UUID uuid;
     private String judul;
-    private Collection<Mahasiswa> member;
+    private Collection<String> member;
     private Collection<Dokumentasi> dokumentasi;
 
     public Tubes(String judul) {
@@ -30,7 +30,7 @@ public class Tubes {
         return judul;
     }
 
-    public Collection<Mahasiswa> getMember() {
+    public Collection<String> getMember() {
         return member;
     }
 
@@ -42,7 +42,7 @@ public class Tubes {
         this.judul = judul;
     }
     
-    public void addMember(Mahasiswa m) {
+    public void addMember(String m) {
         this.member.add(m);
     }
     
@@ -54,7 +54,7 @@ public class Tubes {
         this.dokumentasi.remove(d);
     }
     
-    public void removeMember(Mahasiswa m) {
+    public void removeMember(String m) {
         this.member.remove(m);
     }
 }
