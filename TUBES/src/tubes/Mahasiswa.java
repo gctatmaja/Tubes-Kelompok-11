@@ -1,63 +1,37 @@
 package tubes;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+import java.util.UUID;
 
 /**
  *
  * @author Budhi
  */
-public class Mahasiswa {
-    private String nama;
-    private long nim;
+ 
+ public class Mahasiswa extends Orang {
+    
     private String kelas;
+    private UUID tubes;
     
-    public Mahasiswa (String nama, long nim, String kelas){
-        this.nama = nama;
-        this.nim = nim;
+    public Mahasiswa(String nim, String nama, String kelas) {
+        super(nim, nama, "mahasiswa");
         this.kelas = kelas;
+        this.tubes = null;
     }
-    
-    public void setName(String nama){
-        this.nama = nama;
-    }
-    
-    public String getName(){
-        return nama;
-    }
-    
-    public void setNim(long nim){
-        this.nim = nim;
-    }
-    
-    public long getNim(){
-        return nim;
-    }
-    
-    public void setKelas(String kelas){
-        this.kelas = kelas;
-    }
-    
-    public String getKelas(){
+
+    public String getKelas() {
         return kelas;
     }
 
-    Object getNama() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setKelas(String kelas) {
+        this.kelas = kelas;
     }
 
-    Object getPass() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public UUID getTubes() {
+        return tubes;
     }
 
-    String getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void setPass(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void setTubes(UUID tubes) {
+        this.tubes = tubes;
+    }  
 }
