@@ -5,37 +5,39 @@
  */
 package tubes;
 
-import java.util.UUID;
-
 /**
  *
  * @author useR
  */
 
-public class Mahasiswa extends Orang {
-    
-    private String kelas;
-    private UUID tubes;
-    
-    public Mahasiswa(String nim, String nama, String kelas) {
-        super(nim, nama, "mahasiswa");
-        this.kelas = kelas;
-        this.tubes = null;
+public abstract class Orang {
+    private String nim;
+    private String nama;
+    private String role;
+
+    public Orang(String nim, String nama, String role) {
+        this.nim = nim;
+        this.nama = nama;
+        this.role = role;
     }
 
-    public String getKelas() {
-        return kelas;
+    public String getRole() {
+        return role;
     }
 
-    public void setKelas(String kelas) {
-        this.kelas = kelas;
+    public String getNim() {
+        return nim;
     }
 
-    public UUID getTubes() {
-        return tubes;
+    public void setNim(String nim) {
+        this.nim = nim;
     }
 
-    public void setTubes(UUID tubes) {
-        this.tubes = tubes;
-    }  
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
 }
