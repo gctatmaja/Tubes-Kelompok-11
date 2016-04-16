@@ -46,7 +46,7 @@ public class Application {
     }
     
     private void loginNimAction(String nim) {
-        if (this.currentUser != null) {
+        if (this.currentUser == null) {
             Orang nextUser = Stream.concat(this.listAsisten.stream(), this.listMhs.stream())
                     .filter(o -> o.getNim().equalsIgnoreCase(nim)).findFirst().get();
             
@@ -87,7 +87,44 @@ public class Application {
                     
                     return m;
                 }).collect(Collectors.toList());
+        
+        this.listTubes = this.listTubes
+                .stream()
+                .map((Tubes t) -> {
+                    if (t.getUuid().equals(tubesUuid)) {
+                        t.addMember(nim);
+                    }
+                    
+                    return t;
+                }).collect(Collectors.toList());
                 
+    }
+    
+    private void removeTubesMhsAction(UUID tubesUuid, String nim) {
+        this.listMhs = this.listMhs
+                .stream()
+                .map((Mahasiswa m) -> {
+                    if (m.getNim().equalsIgnoreCase(nim)) {
+                        m.setTubes(null);
+                    }
+                    
+                    return m;
+                }).collect(Collectors.toList());
+        
+        this.listTubes = this.listTubes
+                .stream()
+                .map((Tubes t) -> {
+                    if (t.getUuid().equals(tubesUuid)) {
+                        t.removeMember(nim);
+                    }
+                    
+                    return t;
+                }).collect(Collectors.toList());
+                
+    }
+    
+    private void addTubesAction(String judul) {
+        this.listTubes.add(new Tubes(judul));
     }
     
     private Mahasiswa findMhsByNim(String nim) {
@@ -100,6 +137,39 @@ public class Application {
         return this.listAsisten.stream()
                        .filter(m -> m.getNim().equalsIgnoreCase(nim))
                        .findFirst().get();
+    }
+    
+    private void DisplayMemberTubes(Tubes tubes) {
+        Collection<String> mahasiswa = tubes.getMember();
+        
+        mahasiswa.forEach(m -> System.out.println("nim: "+m));
+    }
+    
+    private void kurangTambahMemberTubes(int action, UUID tubesUuid) {
+        switch(action) {
+            case 1:
+                System.out.println("masukkan nim mhs yang ingin anda keluarkan: ");
+                Mahasiswa mahasiswa = this.findMhsByNim(reader.next());
+                if (mahasiswa == null) {
+                    System.out.println("mahasiswa tidak ditemukan");
+                } else {
+                    this.removeTubesMhsAction(tubesUuid, mahasiswa.getNim());
+                }
+                break;
+                
+            case 2:
+                System.out.println("masukkan nim mhs yang ingin anda tambahkan: ");
+                Mahasiswa mahasiswatambah = this.findMhsByNim(reader.next());
+                if (mahasiswatambah == null) {
+                    System.out.println("mahasiswa tidak ditemukan");
+                } else {
+                    this.addTubesMhsAction(tubesUuid, mahasiswatambah.getNim());
+                }
+                break;
+                
+            default:
+                break;
+        }
     }
     
     public void mainMenu() {
@@ -139,17 +209,21 @@ public class Application {
                } else {
                    System.out.println("silahkan pilih tubes");
                    Tubes[] arrTubes = (Tubes[]) this.listTubes.toArray();
-                   
-                   for (int i = 0;i<arrTubes.length;i++) {
-                       System.out.println(i+". "+arrTubes[i].getJudul());
-                   }
-                   System.out.println("masukkan nomor tubes");
-                   
-                   try {
-                       this.addTubesMhsAction(arrTubes[reader.nextInt()].getUuid(), mhs.getNim());
-                   } catch (Exception e){
-                       System.out.println("wowww inputan ente keknya bikin error");
-                       continue;
+                   if (arrTubes.length == 0) {
+                       System.out.println("tidak ada tubes sekarang silahkan coba lagi kapan kapan");
+                   } else {
+                    for (int i = 0;i<arrTubes.length;i++) {
+                        System.out.println(i+". "+arrTubes[i].getJudul());
+                    }
+
+                    System.out.println("masukkan nomor tubes");
+
+                    try {
+                        this.addTubesMhsAction(arrTubes[reader.nextInt()].getUuid(), mhs.getNim());
+                    } catch (Exception e){
+                        System.out.println("wowww inputan ente keknya bikin error");
+                        continue;
+                    }
                    }
                }
             } else if (this.currentUser.getRole().equalsIgnoreCase("asisten")) {
@@ -157,7 +231,29 @@ public class Application {
                 System.out.println("1. tambah tubes");
                 System.out.println("2. lihat daftar tubes");
                 if (reader.nextInt() == 1) {
+                    System.out.println("masukkan judul tubes: ");
+                    this.addTubesAction(reader.next());
+                } else if (reader.nextInt() == 2) {
+                    Tubes[] arrTubes = (Tubes[]) this.listTubes.toArray();
                     
+                    if (arrTubes.length == 0) {
+                        System.out.println("tidak ada tubes untuk dilihat");
+                    } else {
+                        for (int i = 0;i<arrTubes.length;i++) {
+                            System.out.println(i+". "+arrTubes[i].getJudul());
+                        }
+                        System.out.println("pilih nomor judul untuk detail member:");
+                        try {
+                            Tubes tubes = arrTubes[reader.nextInt()];
+                            this.DisplayMemberTubes(tubes);
+                            System.out.println("pilih aksi: ");
+                            System.out.println("1. kurangi member");
+                            System.out.println("2. tambah member");
+                            this.kurangTambahMemberTubes(reader.nextInt(), tubes.getUuid());
+                        } catch (Exception e) {
+                            System.out.println("wow inputan anda hampir bikin error");
+                        }
+                    }
                 }
             }
         }
