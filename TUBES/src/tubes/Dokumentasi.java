@@ -9,13 +9,18 @@ package tubes;
  *
  * @author useR
  */
-public class Dokumentasi 
-{
-    private String dateAssist ;
-    
-    public Dokumentasi(String dateAssist)
-    {
-        this.dateAssist=dateAssist;
- 
+public class Dokumentasi {
+    private String text;
+
+    public Dokumentasi(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }
