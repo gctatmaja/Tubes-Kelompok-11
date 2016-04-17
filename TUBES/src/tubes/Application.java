@@ -11,11 +11,11 @@ import java.util.Scanner;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import models.Asisten;
-import models.Dokumentasi;
-import models.Mahasiswa;
-import models.Orang;
-import models.Tubes;
+import tubes.Asisten;
+import tubes.Dokumentasi;
+import tubes.Mahasiswa;
+import tubes.Orang;
+import tubes.Tubes;
 
 
 /**
