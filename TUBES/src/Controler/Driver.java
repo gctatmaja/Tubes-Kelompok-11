@@ -1,7 +1,7 @@
 
 package Controler;
 
-import Controler.Application;
+import Model.Application;
 
 /**
  *
