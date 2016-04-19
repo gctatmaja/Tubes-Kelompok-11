@@ -1,7 +1,7 @@
 
-package tubes;
+package Controler;
 
-import tubes.Application;
+import Controler.Application;
 
 /**
  *

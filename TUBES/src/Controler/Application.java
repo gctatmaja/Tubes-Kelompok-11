@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tubes;
+package Controler;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import tubes.Asisten;
-import tubes.Dokumentasi;
-import tubes.Mahasiswa;
-import tubes.Orang;
-import tubes.Tubes;
+import Model.Asisten;
+import Model.Dokumentasi;
+import Model.Mahasiswa;
+import Model.Orang;
+import Model.Tubes;
 
 
 /**
