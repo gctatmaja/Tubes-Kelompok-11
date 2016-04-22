@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author useR
@@ -16,6 +19,24 @@ public class MenuAsisten extends javax.swing.JFrame {
      */
     public MenuAsisten() {
         initComponents();
+    }
+
+    public JButton getBtnLihatDaftarTubes() {
+        return BtnLihatDaftarTubes;
+    }
+
+    public JButton getBtnLogout() {
+        return BtnLogout;
+    }
+
+    public JButton getBtnTambahTubes() {
+        return BtnTambahTubes;
+    }
+
+    public void addListener(ActionListener e){
+        BtnLihatDaftarTubes.addActionListener(e);
+        BtnLogout.addActionListener(e);
+        BtnTambahTubes.addActionListener(e);
     }
 
     /**

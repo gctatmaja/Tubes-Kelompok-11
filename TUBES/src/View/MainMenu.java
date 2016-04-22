@@ -18,6 +18,7 @@ public class MainMenu extends javax.swing.JFrame {
         initComponents();
     }
     
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,6 +32,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnAddAsisten = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnLoginMhs = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,9 +40,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         btnAddAsisten.setText("AddAsisten ");
 
-        btnLogin.setText("Log In");
+        btnLogin.setText("Log In Asisten");
 
         jLabel1.setText("Main Menu");
+
+        btnLoginMhs.setText("Log In Mahasiswa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,6 +60,10 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(jLabel1)))
                 .addContainerGap(136, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLoginMhs, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -66,9 +74,11 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(btnAddAsisten)
                 .addGap(31, 31, 31)
                 .addComponent(btnAddMahasiswa)
-                .addGap(28, 28, 28)
+                .addGap(27, 27, 27)
                 .addComponent(btnLogin)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnLoginMhs)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,9 +88,11 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnAddAsisten;
     private javax.swing.JButton btnAddMahasiswa;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLoginMhs;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
+    
     public JButton getBtnAddAsisten() {
         return btnAddAsisten;
     }
@@ -92,6 +104,10 @@ public class MainMenu extends javax.swing.JFrame {
     public JButton getBtnLogin() {
         return btnLogin;
     }  
+    
+    public JButton getBtnLoginMhs(){
+        return btnLoginMhs;
+    }
     
     public void addListener(ActionListener e) {
         btnAddAsisten.addActionListener(e);

@@ -37,6 +37,9 @@ public class ControllerMainMenu implements ActionListener {
         } else if (source.equals(view.getBtnLogin())){
             new ControllerLogin(model);
             view.dispose();
+        } else if (source.equals(view.getBtnLoginMhs())){
+            new ControllerLoginMhs(model);
+            view.dispose();
         }
     }
 }

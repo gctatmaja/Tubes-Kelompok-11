@@ -32,7 +32,7 @@ public class Login extends javax.swing.JFrame {
 
     public void addListener(ActionListener e){
         BtnOKLogin.addActionListener(e);
-        FormNim.addActionListener(e);
+//        FormNim.addActionListener(e);
     }
     
     public String getNim(){

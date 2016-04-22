@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author useR
@@ -16,6 +20,18 @@ public class AddTubes extends javax.swing.JFrame {
      */
     public AddTubes() {
         initComponents();
+    }
+
+    public JTextField getFormJudulTubes() {
+        return FormJudulTubes;
+    }
+
+    public JButton getOkAddTubes() {
+        return OkAddTubes;
+    }
+    
+    public void addListener(ActionListener e){
+        OkAddTubes.addActionListener(e);
     }
 
     /**
@@ -108,12 +124,6 @@ public class AddTubes extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddTubes().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

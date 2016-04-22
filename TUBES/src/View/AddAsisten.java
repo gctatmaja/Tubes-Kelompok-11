@@ -128,8 +128,8 @@ public class AddAsisten extends javax.swing.JFrame {
     
     public void addListener(ActionListener e){
         BtnOKAddAsisten.addActionListener(e);
-        FormNimAsisten.addActionListener(e);
-        FormNamaAsisten.addActionListener(e);
+//        FormNimAsisten.addActionListener(e);
+//        FormNamaAsisten.addActionListener(e);
     }
 
 }
