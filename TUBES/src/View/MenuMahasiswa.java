@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author useR
@@ -18,6 +21,22 @@ public class MenuMahasiswa extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtnAddDokumentasi() {
+        return btnAddDokumentasi;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+
+    public JButton getBtnPilihTubes() {
+        return btnPilihTubes;
+    }
+    public void AddListener(ActionListener e){
+        btnAddDokumentasi.addActionListener(e);
+        btnLogout.addActionListener(e);
+        btnPilihTubes.addActionListener(e);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,18 +46,18 @@ public class MenuMahasiswa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        btnPilihTubes = new javax.swing.JButton();
+        btnAddDokumentasi = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Logout");
+        btnLogout.setText("Logout");
 
-        jButton2.setText("Pilih Tubes");
+        btnPilihTubes.setText("Pilih Tubes");
 
-        jButton3.setText("Masukkan Dokumentasi");
+        btnAddDokumentasi.setText("Masukkan Dokumentasi");
 
         jLabel1.setText("Mahasiswa");
 
@@ -51,16 +70,16 @@ public class MenuMahasiswa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
+                            .addComponent(btnPilihTubes)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
                                 .addComponent(jLabel1))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
-                        .addComponent(jButton3))
+                        .addComponent(btnAddDokumentasi))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(151, 151, 151)
-                        .addComponent(jButton1)))
+                        .addComponent(btnLogout)))
                 .addContainerGap(139, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -69,11 +88,11 @@ public class MenuMahasiswa extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(jLabel1)
                 .addGap(31, 31, 31)
-                .addComponent(jButton2)
+                .addComponent(btnPilihTubes)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnAddDokumentasi)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnLogout)
                 .addContainerGap(102, Short.MAX_VALUE))
         );
 
@@ -107,18 +126,12 @@ public class MenuMahasiswa extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuMahasiswa().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnAddDokumentasi;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnPilihTubes;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

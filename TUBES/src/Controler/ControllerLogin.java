@@ -10,6 +10,7 @@ import Model.Orang;
 import View.Login;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,9 +32,20 @@ public class ControllerLogin implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        view.getBtnOKLogin();
-        new ControllerLogin(model);
-        view.dispose();
-        view.setNim(p.getNim());
+        if (source.equals(view.getBtnOKLogin())){
+            if (model.loginNimAction(view.getNim())) {
+                JOptionPane.showMessageDialog(null, "Login berhasil");
+                new ControllerMenuAsisten(model);
+                view.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Login gagal");
+                new ControllerLogin(model);
+            }
+            
+        }
+//        view.getBtnOKLogin();
+//        new ControllerLogin(model);
+//        view.dispose();
+//        view.setNim(p.getNim());
     }
 }

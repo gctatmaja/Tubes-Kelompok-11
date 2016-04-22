@@ -36,6 +36,11 @@
               </Group>
               <EmptySpace pref="136" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnLoginMhs" min="-2" pref="126" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -47,9 +52,11 @@
               <Component id="btnAddAsisten" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="btnAddMahasiswa" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="btnLogin" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="77" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnLoginMhs" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,12 +74,17 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnLogin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Log In"/>
+        <Property name="text" type="java.lang.String" value="Log In Asisten"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Main Menu"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLoginMhs">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Log In Mahasiswa"/>
       </Properties>
     </Component>
   </SubComponents>
