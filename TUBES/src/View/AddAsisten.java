@@ -35,6 +35,9 @@ public class AddAsisten extends javax.swing.JFrame {
         FormNimAsisten = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         FormNamaAsisten = new javax.swing.JTextField();
+        BtnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,43 +48,62 @@ public class AddAsisten extends javax.swing.JFrame {
             }
         });
 
-        FormNimAsisten.setText("Masukkan NIM");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Tambah Asisten");
 
-        jLabel2.setText("AddAsisten");
+        FormNamaAsisten.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormNamaAsistenActionPerformed(evt);
+            }
+        });
 
-        FormNamaAsisten.setText("Masukkan Nama");
+        BtnBack.setText("Back");
+
+        jLabel1.setText("Masukkan NIM");
+
+        jLabel3.setText("Masukkan Nama");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
+                        .addComponent(BtnBack)
+                        .addGap(40, 40, 40)
                         .addComponent(BtnOKAddAsisten))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(FormNimAsisten)
-                            .addComponent(FormNamaAsisten, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jLabel2)))
-                .addContainerGap(154, Short.MAX_VALUE))
+                    .addComponent(FormNamaAsisten)
+                    .addComponent(FormNimAsisten))
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(123, 123, 123))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel2)
-                .addGap(53, 53, 53)
-                .addComponent(FormNimAsisten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FormNimAsisten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addComponent(FormNamaAsisten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(BtnOKAddAsisten)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FormNamaAsisten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnOKAddAsisten)
+                    .addComponent(BtnBack))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,13 +113,23 @@ public class AddAsisten extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnOKAddAsistenActionPerformed
 
+    private void FormNamaAsistenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormNamaAsistenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FormNamaAsistenActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBack;
     private javax.swing.JButton BtnOKAddAsisten;
     private javax.swing.JTextField FormNamaAsisten;
     private javax.swing.JTextField FormNimAsisten;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 
+    public JButton getBtnBack(){
+        return BtnBack;
+    }
     public JTextField getFormNamaAsisten() {
         return FormNamaAsisten;
     }
@@ -130,6 +162,8 @@ public class AddAsisten extends javax.swing.JFrame {
         BtnOKAddAsisten.addActionListener(e);
         FormNimAsisten.addActionListener(e);
         FormNamaAsisten.addActionListener(e);
+        BtnBack.addActionListener(e);
+                
     }
 
 }

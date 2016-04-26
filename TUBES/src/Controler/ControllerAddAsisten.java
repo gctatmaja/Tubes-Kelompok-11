@@ -9,6 +9,7 @@ import Model.Application;
 import View.AddAsisten;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
     
 /**
  *
@@ -27,7 +28,21 @@ public class ControllerAddAsisten implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-     
+      Object o = ae.getSource();
+        if (o.equals(view.getOkAddAsisten())) {
+           if (!view.getNim().isEmpty() && !view.getNama().isEmpty() ) {
+            model.createAsistenAction(view.getNim(), view.getNama());
+            JOptionPane.showMessageDialog(null, "Create Asisten Berhasil");
+            new ControllerMainMenu(model);
+            view.dispose();
+            } else { 
+                 JOptionPane.showMessageDialog(null, "Inputan harus terisi semua");
+                
+            }
+        }else if (o.equals(view.getBtnBack())){
+            new ControllerMainMenu(model);
+            view.dispose();
+        }
     }
     
 }

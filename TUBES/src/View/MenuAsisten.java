@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author useR
@@ -18,6 +21,22 @@ public class MenuAsisten extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtnLihatDaftarTubes() {
+        return BtnLihatDaftarTubes;
+    }
+
+    public JButton getBtnLogout() {
+        return BtnLogout;
+    }
+
+    public JButton getBtnTambahTubes() {
+        return BtnTambahTubes;
+    }
+    public void addListener(ActionListener e){
+        BtnLihatDaftarTubes.addActionListener(e);
+        BtnLogout.addActionListener(e);
+        BtnTambahTubes.addActionListener(e);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,6 +53,7 @@ public class MenuAsisten extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Asisten");
 
         BtnTambahTubes.setText("Tambah Tubes");
@@ -48,18 +68,15 @@ public class MenuAsisten extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(BtnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(146, 146, 146)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(BtnTambahTubes, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BtnLihatDaftarTubes))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(178, 178, 178)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BtnTambahTubes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnLihatDaftarTubes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(147, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -73,7 +90,7 @@ public class MenuAsisten extends javax.swing.JFrame {
                 .addComponent(BtnLihatDaftarTubes)
                 .addGap(18, 18, 18)
                 .addComponent(BtnLogout)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();

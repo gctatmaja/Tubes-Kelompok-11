@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author useR
@@ -18,6 +22,22 @@ public class AddTubes extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtnBack() {
+        return BtnBack;
+    }
+
+    public JTextField getFormJudulTubes() {
+        return FormJudulTubes;
+    }
+
+    public JButton getOkAddTubes() {
+        return OkAddTubes;
+    }
+  
+    public void addListener(ActionListener e){
+        OkAddTubes.addActionListener(e);
+        BtnBack.addActionListener(e);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,12 +50,14 @@ public class AddTubes extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         FormJudulTubes = new javax.swing.JTextField();
         OkAddTubes = new javax.swing.JButton();
+        BtnBack = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("AddTubes");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Tambah Tubes");
 
-        FormJudulTubes.setText("Masukkan Judul Tubes");
         FormJudulTubes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FormJudulTubesActionPerformed(evt);
@@ -44,34 +66,44 @@ public class AddTubes extends javax.swing.JFrame {
 
         OkAddTubes.setText("OK");
 
+        BtnBack.setText("Back");
+
+        jLabel2.setText("Masukkan Judul Tubes");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(182, 182, 182))
-            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(FormJudulTubes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(OkAddTubes)))
-                .addContainerGap(154, Short.MAX_VALUE))
+                        .addComponent(BtnBack)
+                        .addGap(45, 45, 45)
+                        .addComponent(OkAddTubes))
+                    .addComponent(FormJudulTubes, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel1)
                 .addGap(44, 44, 44)
-                .addComponent(FormJudulTubes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FormJudulTubes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(OkAddTubes)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(OkAddTubes)
+                    .addComponent(BtnBack))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,17 +140,14 @@ public class AddTubes extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddTubes().setVisible(true);
-            }
-        });
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBack;
     private javax.swing.JTextField FormJudulTubes;
     private javax.swing.JButton OkAddTubes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

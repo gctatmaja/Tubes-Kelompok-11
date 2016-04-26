@@ -1,6 +1,7 @@
 
 package Controler;
 
+import Model.AppSingleton;
 import Model.Application;
 
 
@@ -10,7 +11,7 @@ import Model.Application;
  */
 public class Driver {
     public static void main(String[] args) {
-        Application app = new Application();
+        Application app = AppSingleton.getSingleton();
         new ControllerMainMenu(app);
         
         app.mainMenu();

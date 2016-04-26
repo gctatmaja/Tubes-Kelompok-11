@@ -38,6 +38,22 @@ public class Application {
         this.currentUser = null;
     }
     
+    public Collection<Tubes> getListTubes() {
+        return this.listTubes;
+    }
+   
+    
+    public Orang getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(Orang currentUser) {
+        this.currentUser = currentUser;
+    }
+    
+    public void setCurrentUserNull() {
+        this.currentUser = null;
+    }
     public void loginMenu() {
         System.out.println("Pilih menu anda");
         System.out.println("1. login via nim");
@@ -45,26 +61,39 @@ public class Application {
         System.out.println("3. add mahasiswa");
     }
     
-    private void loginNimAction(String nim) {
-        if (this.currentUser == null) {
-            Orang nextUser = Stream.concat(this.listAsisten.stream(), this.listMhs.stream())
-                    .filter(o -> o.getNim().equalsIgnoreCase(nim)).findFirst().get();
-            
-            this.currentUser = nextUser;
-        }
+    public boolean loginGuiAction(String nim) {
+       return Stream.concat(this.listAsisten.stream(), this.listMhs.stream())
+               .filter(o -> o.getNim().equalsIgnoreCase(nim)).findFirst().isPresent();
     }
     
-    private void createAsistenAction(String nim, String nama) {
+    public boolean loginNimAction(String nim) {
+         if (this.currentUser==null) {
+            currentUser = findAsistenByNim(nim);
+            return true;
+        } else {
+            return false;
+        }
+//        if (this.currentUser == null) {
+//            Orang nextUser = Stream.concat(this.listAsisten.stream(), this.listMhs.stream())
+//                    .filter(o -> o.getNim().equalsIgnoreCase(nim)).findFirst().get();
+//            
+//            this.currentUser = nextUser;
+//        }
+      
+    }
+    
+    public void createAsistenAction(String nim, String nama) {
         Asisten newAsisten = new Asisten(nim, nama);
         this.listAsisten.add(newAsisten);
     }
     
-    private void createMhsAction(String nim, String nama, String kelas) {
+    public void createMhsAction(String nim, String nama, String kelas) {
         Mahasiswa newMahasiswa = new Mahasiswa(nim, nama, kelas);
+       
         this.listMhs.add(newMahasiswa);
     }
     
-    private void addDocAction(UUID tubesUuid, String text) {
+    public void addDocAction(UUID tubesUuid, String text) {
         this.listTubes = this.listTubes
                 .stream()
                 .map((Tubes t) -> {
@@ -77,7 +106,7 @@ public class Application {
                 .collect(Collectors.toList());
     }
     
-    private void addTubesMhsAction(UUID tubesUuid, String nim) {
+    public void addTubesMhsAction(UUID tubesUuid, String nim) {
         this.listMhs = this.listMhs
                 .parallelStream()
                 .map((Mahasiswa m) -> {
@@ -100,7 +129,7 @@ public class Application {
                 
     }
     
-    private void removeTubesMhsAction(UUID tubesUuid, String nim) {
+    public void removeTubesMhsAction(UUID tubesUuid, String nim) {
         this.listMhs = this.listMhs
                 .parallelStream()
                 .map((Mahasiswa m) -> {
@@ -123,23 +152,32 @@ public class Application {
                 
     }
     
-    private void addTubesAction(String judul) {
+    public void addTubesAction(String judul) {
         this.listTubes.add(new Tubes(judul));
     }
     
-    private Mahasiswa findMhsByNim(String nim) {
+    public Mahasiswa findMhsByNim(String nim) {
         return this.listMhs.stream()
                        .filter(m -> m.getNim().equalsIgnoreCase(nim))
                        .findFirst().get();
     }
+    public Tubes findTubesByJudul(String judul) {
+        Tubes x = null;
+        for (Tubes temp : listTubes){
+            if (temp.getJudul().equals(judul)){
+                x= temp;
+            }
+        }
+        return x;
+    }
     
-    private Asisten findAsistenByNim(String nim) {
+    public Asisten findAsistenByNim(String nim) {
         return this.listAsisten.stream()
                        .filter(m -> m.getNim().equalsIgnoreCase(nim))
                        .findFirst().get();
     }
     
-    private void DisplayMemberTubes(Tubes tubes) {
+    public void DisplayMemberTubes(Tubes tubes) {
         Collection<String> mahasiswa = tubes.getMember();
         
         if (mahasiswa.size() < 1) {
@@ -149,11 +187,11 @@ public class Application {
         }
     }
     
-    private void kurangTambahMemberTubes(int action, UUID tubesUuid, Scanner reader) {
+    public void kurangTambahMemberTubes(int action, UUID tubesUuid, String nim) {
         switch(action) {
             case 1:
                 System.out.println("masukkan nim mhs yang ingin anda keluarkan: ");
-                Mahasiswa mahasiswa = this.findMhsByNim(reader.next());
+                Mahasiswa mahasiswa = this.findMhsByNim(nim);
                 if (mahasiswa == null) {
                     System.out.println("mahasiswa tidak ditemukan");
                 } else {
@@ -163,7 +201,7 @@ public class Application {
                 
             case 2:
                 System.out.println("masukkan nim mhs yang ingin anda tambahkan: ");
-                Mahasiswa mahasiswatambah = this.findMhsByNim(reader.next());
+                Mahasiswa mahasiswatambah = this.findMhsByNim(nim);
                 if (mahasiswatambah == null) {
                     System.out.println("mahasiswa tidak ditemukan");
                 } else {
@@ -302,7 +340,7 @@ public class Application {
                                    System.out.println("1. kurangi member");
                                    System.out.println("2. tambah member");
                                    inputInt = reader.nextInt();
-                                   this.kurangTambahMemberTubes(inputInt, tubes.getUuid(), reader);   
+                                   this.kurangTambahMemberTubes(inputInt, tubes.getUuid(), inputStr);  
                                 } catch (Exception e) {
                                     System.out.println("Inputan ada bikin eror "+e.getMessage());
                                     continue;

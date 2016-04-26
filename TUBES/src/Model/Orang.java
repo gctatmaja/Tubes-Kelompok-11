@@ -14,6 +14,7 @@ public abstract class Orang {
     private String nim;
     private String nama;
     private String role;
+    
 
     public Orang(String nim, String nama, String role) {
         this.nim = nim;

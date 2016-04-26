@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author useR
@@ -18,6 +21,24 @@ public class MenuMahasiswa extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtnLogoutMhs() {
+        return btnLogoutMhs;
+    }
+
+    
+    public JButton getBtnMasukDoc() {
+        return btnMasukDoc;
+    }
+
+    public JButton getBtnPilihTubes() {
+        return btnPilihTubes;
+    }
+
+    public void addListener(ActionListener e){
+        btnLogoutMhs.addActionListener(e);
+        btnMasukDoc.addActionListener(e);
+        btnPilihTubes.addActionListener(e);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,19 +48,20 @@ public class MenuMahasiswa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnLogoutMhs = new javax.swing.JButton();
+        btnPilihTubes = new javax.swing.JButton();
+        btnMasukDoc = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Logout");
+        btnLogoutMhs.setText("Logout");
 
-        jButton2.setText("Pilih Tubes");
+        btnPilihTubes.setText("Pilih Tubes");
 
-        jButton3.setText("Masukkan Dokumentasi");
+        btnMasukDoc.setText("Input Dokumentasi");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Mahasiswa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -49,32 +71,28 @@ public class MenuMahasiswa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel1))))
+                        .addGap(138, 138, 138)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnMasukDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPilihTubes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLogoutMhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jButton1)))
+                        .addGap(156, 156, 156)
+                        .addComponent(jLabel1)))
                 .addContainerGap(139, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(btnPilihTubes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMasukDoc)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLogoutMhs)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,18 +125,12 @@ public class MenuMahasiswa extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuMahasiswa().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnLogoutMhs;
+    private javax.swing.JButton btnMasukDoc;
+    private javax.swing.JButton btnPilihTubes;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
